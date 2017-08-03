@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :users
   root to: 'products#index'
+  resources :users
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
