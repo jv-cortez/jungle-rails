@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+  
+  def index
+    @category_products = @category.all.order(category_id: :desc)
+  end
 
   def show
     @category = Category.find(params[:id])
