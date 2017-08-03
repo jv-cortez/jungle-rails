@@ -9,18 +9,18 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    product = Product.new(product_params)
 
-    if @product.save
-      redirect_to [:admin, :products], notice: 'Product created!'
+    if product.save
+      redirect_to admin_products_path, notice: 'Product created!'
     else
       render :new
     end
   end
 
   def destroy
-    @product = Product.find params[:id]
-    @product.destroy
+    product = Product.find params[:id]
+    product.destroy
     redirect_to [:admin, :products], notice: 'Product deleted!'
   end
 
