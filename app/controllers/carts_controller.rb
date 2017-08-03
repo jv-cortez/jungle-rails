@@ -5,8 +5,7 @@ class CartsController < ApplicationController
 
   def add_item
     product_id = params[:product_id].to_s
-    logger.debug "what am i doing: #{product_id.inspect}"
-    logger.info
+  
     item = cart[product_id] || { "quantity" => 0 }
     item["quantity"] += 1
     cart[product_id] = item
