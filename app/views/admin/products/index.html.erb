@@ -6,10 +6,13 @@
 
   <div class="well">
     <%= link_to '+ New Product', [:new, :admin, :product], class: 'btn btn-info' %>
+    <span class="well_category"> 
+     <%# still need to put padding in between btns %>
+       <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info'  %>
+    </span>
   </div>
 
   <div class="panel panel-default products">
-
     <table class="table table-bordered">
       <thead>
         <tr>
