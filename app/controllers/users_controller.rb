@@ -10,13 +10,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
       if @user.save
-        format.html { redirect_to products_path, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        redirect_to products_path, notice: 'User was successfully created.' 
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        redirect_to new_session_path, notice: 'Please log in.' 
       end
     end
   end
