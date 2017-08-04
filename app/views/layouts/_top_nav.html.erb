@@ -16,7 +16,7 @@
         </li>
         <% if current_user %>
         <li>  
-          <span>Welcome!</span> <%= current_user.first_name %>
+          <%= link_to current_user.first_name %>
         </li>
         <li>
           <%= link_to 'Log Out', session_path, method: :delete %>
