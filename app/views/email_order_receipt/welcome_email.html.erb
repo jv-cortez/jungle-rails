@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Order</th>
+          <th>Item Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |user| %>
+          <tr>
+            <td>
+              <h1><%= user.product.name %></h1>
+            </td> 
+            <td>
+              <%= image_tag user.product.image.tiny %>
+            </td>
+            <td>
+              <br>
+              <p><%= user.product.description %></p>
+            </td>
+            <td>
+              <%= user.total_price %>
+            </td>
+            <td>
+              <%= user.quantity %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <p>Thanks for shopping and have a great day!</p>
+  </div>
+</html>
