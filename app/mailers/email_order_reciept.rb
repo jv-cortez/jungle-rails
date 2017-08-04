@@ -1,2 +1,0 @@
-class EmailOrderReciept < ApplicationMailer
-end
