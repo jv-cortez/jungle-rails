@@ -3,10 +3,12 @@
   <header class="page-header">
   
     <div class="order-summary jumbotron">
-      <h4>Thank you for your order, <%= current_user.email %>!</h4>
+      <h4>Thank you for your order, <%= current_user.first_name %>!</h4>
     </div>
     <h1>Order #<%= @order.id %></h1>
-  
+    <div>
+      Email: <%= current_user.email %>
+    </div>
   </header>
 
   <table class="table table-bordered">
