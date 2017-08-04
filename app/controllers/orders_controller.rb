@@ -6,10 +6,11 @@ class OrdersController < ApplicationController
 
   def create
     charge = perform_stripe_charge
-    order  = create_order(charge)
+    order  = create_order(charge) #it should not give an exception, it should still give an order
 
     if order.valid?
       empty_cart!
+      EmailOrderReceipt.welcome_email(order).deliver_now
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, error: order.errors.full_messages.first
