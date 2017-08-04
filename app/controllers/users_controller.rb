@@ -16,7 +16,6 @@ class UsersController < ApplicationController
         redirect_to new_session_path, notice: 'Please log in.' 
       end
     end
-  end
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
