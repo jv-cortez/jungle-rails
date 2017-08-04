@@ -9,7 +9,12 @@ class ApplicationController < ActionController::Base
     # value = cookies[:cart] || JSON.generate({})
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end
-  helper_method :cart
+
+  def current_user
+    @user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  
+  helper_method :cart, :current_user
 
   def update_cart(new_cart)
     cookies[:cart] = {
