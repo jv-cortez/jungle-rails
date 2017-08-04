@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
   resources :users, only: [:new, :create]
-  
+
   get '/session', to: 'session#new'
   post '/session', to: 'session#create'
   delete '/session', to: 'session#destroy'
+
+  
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
