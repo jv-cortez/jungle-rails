@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   post '/session', to: 'session#create'
   delete '/session', to: 'session#destroy'
 
-  resources :products, only: [:index, :show]
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [:index, :show]  
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create]
+  end
 
   resource :cart, only: [:show] do
     put    :add_item
