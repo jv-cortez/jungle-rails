@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get '/session', to: 'session#new'
   post '/session', to: 'session#create'
   delete '/session', to: 'session#destroy'
-
+  
+  resources :reviews, only: [:destroy]  
   resources :categories, only: [:index, :show]  
   resources :products, only: [:index, :show] do
     resources :reviews, only: [:create]
