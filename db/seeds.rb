@@ -133,4 +133,37 @@ cat3.products.create!({
 })
 
 
+# USERS
+
+User.create! ({
+  email: 'john@example.com',
+  password: '99999',
+  first_name: 'John',
+  last_name: 'Snow'
+
+})
+# REVIEWS
+
+
+Review.create!({
+  product_id: 1,
+  user_id: 1 ,  
+  description: "I like how this products fits my lifestyle and my budget. I'd recommend it to all my friends, family, dead relatives, and furniture. It's that good!",
+  rating: 5
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1 ,  
+  description: "This item is not worth your money! Thumbs down :(",
+  rating: 1
+})
+
+Review.create!({
+  product_id: 11,
+  user_id: 1 ,  
+  description: "Meh",
+  rating: 2
+})
+
 puts "DONE!"
