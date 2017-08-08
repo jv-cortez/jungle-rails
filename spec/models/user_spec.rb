@@ -36,6 +36,20 @@ RSpec.describe User, type: :model do
                        password_confirmation:'Stop'
       expect(@shortpassword).to_not be_valid
     end
+
+    describe '.authenticate_with_credentials' do
+
+
+      it 'should authenticate with the credentials' do
+        user = User.authenticate_with_credentials('test@test.com', 'String')
+        expect(user).to eql(@user)
+      end
+
+      it 'blocks authenticate with credentials' do
+        user = User.authenticate_with_credentials('toast@test.com', 'String')
+        expect(user).to_not eql(@user)
+      end
+    end
     #   it 'should have a pasword confirmation' do 
     #   expect(@user).to be_valid
     #   expect(@baduser.errors.messages[:first_name]).to include('can\'t be blank')
