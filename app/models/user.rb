@@ -12,12 +12,9 @@ class User < ActiveRecord::Base
   #custom validation for password wtih p confirmation
 
   def self.authenticate_with_credentials(email, password)
-    # @user ||= User.find(params[:email], [:password]) if params([:email], [:password])
-    user = User.find_by_email(email.strip.downcase)
+    user = User.where(["email = ?", email.strip.downcase]).first
     if user && user.authenticate(password)
-      user 
-    else
-      nil
+      user
     end
   end
 end
