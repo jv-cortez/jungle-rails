@@ -7,12 +7,13 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    user = User.new(user_params)
 
-      if @user.save
-        redirect_to products_path, notice: 'User was successfully created.' 
+      if user.save!
+        session[:user_id] = user.id
+        redirect_to root_path, notice: 'User was successfully created.' 
       else
-        redirect_to new_session_path, notice: 'Please log in.' 
+        redirect_to session_path, notice: 'Please log in.' 
       end
     end
 
